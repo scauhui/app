@@ -1,0 +1,26 @@
+<!--pages/lottery/lottery.wxml-->
+
+<view>
+  <view>
+    <image src='../../img/顶部@2x.png' class='imgtop'></image>
+  </view>
+  <view class='back'>
+    <view class='text'>
+      <text class='p1'>点击挑选您的幸运之蝶\n</text>
+      <view class='text_in'>
+        <text class='p2'>可获得</text>
+        <text class='p3'>50~200</text>
+        <text class='p2'>元(盾),盾可当现金使用</text>
+      </view>
+    </view>
+    <view class='pic'>
+      <view class='picitem' wx:for="{{url_1}}">
+        <image style="width: {{item.imagewidth}}rpx; height: {{item.imageheight}}rpx;"  src="{{item.url}}" bindload="imageLoad" class='imgbuff'></image>
+        <text class='name'>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+
+</view>
+

@@ -1,0 +1,60 @@
+/* pages/lottery/lottery.wxss */
+
+.imgtop{
+  width: 100%;
+  height: 320rpx;
+  vertical-align:top;
+}
+
+.back{
+  background-color: #FDF0BD;
+  padding-top: 10px;
+}
+
+.p1{
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.p2{
+ font-size: 12px;
+ font-weight: 600;
+}
+
+.p3{
+  color:#F031CA;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: -4px;
+}
+
+.text_in{
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.imgbuff{
+display: flex;
+ margin-left: 14rpx;
+ margin-right: 14rpx;
+
+}
+.picitem{
+  text-align: center;
+}
+.name{
+  font-size: 10px;
+  
+}
+.pic{
+  display: flex;
+  flex-flow: wrap;
+  
+  padding: 40rpx;
+  justify-content: space-around;
+  align-items:flex-end;
+  align-content:space-between;
+}
