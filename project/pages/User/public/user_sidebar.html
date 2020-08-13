@@ -1,0 +1,74 @@
+<!-- Brand Logo -->
+<a data-url="pages/User/index/index.html" class="brand-link">
+    <img data-url="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        style="opacity: .8" id="logo">
+    <span class="brand-text font-weight-light">计算机维护队</span>
+</a>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <!-- Sidebar Menu -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+            <img data-url="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" id="profile">
+        </div>
+        <div class="info">
+            <a  class="d-block">百度WF</a>
+        </div>
+    </div>
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu"
+            data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+            with font-awesome or any other icon font library -->
+            <li class="nav-item has-treeview">
+                <a data-url="pages/User/repair/repair.html" class="nav-link" id="repair">
+                    <i class="nav-icon fas fa-hammer" ></i>
+                    <p>
+                        机主报修
+                        
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item has-treeview" >
+                <a data-url="pages/User/history/history.html" class="nav-link" id="history" >
+                    <i class="nav-icon fas fa-list-alt" ></i>
+                    <p>
+                        我的工单
+                        
+                    </p>
+                </a>
+            </li>
+
+
+        </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+</div>
+<!-- /.sidebar -->
+<script>
+    function getContextPath() {
+        var curWwwPath = document.location.href;
+        var pathName = document.location.pathname;     
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPath = curWwwPath.substring(0,pos);
+        return localhostPath;
+        // return "C:\\Users\\zhuoQiang\\Desktop\\web\\proj"
+    }
+
+    function getChildID(){
+        var name = document.location.pathname.split("/").pop()
+        return name.split(".")[0]
+    }
+    function getParentID(){
+        return document.location.pathname.split("/")[document.location.pathname.split("/").length-2]
+    }
+    $("#"+getChildID()).addClass("active").addClass("menu-open")
+    $(".brand-link").attr("href", getContextPath() + "\/"+ $(".brand-link").data("url"))
+    $("#logo").attr("src", getContextPath() + "\/"+ $("#logo").data("url"))
+    $("#profile").attr("src", getContextPath() + "\/"+ $("#profile").data("url"))
+    $(".nav-link").each(function(){
+        $(this).attr("href", getContextPath() + "\/"+  $(this).data("url"))
+    })
+</script>

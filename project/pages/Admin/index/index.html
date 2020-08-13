@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- <title>AdminLTE 3 | Starter</title> -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="../../../dist/css/fonts.css" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" id="navbar_menu">
+            <!-- Left navbar links -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" id="sidebar_menu">
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+            <div class="content">
+                <div class="container-fluid">
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>15</h3>
+
+                                    <p>新增任务数</p>
+                                </div>
+
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>5</h3>
+
+                                    <p>今日线上任务数</p>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>4</h3>
+
+                                    <p>今日限下任务数</p>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3>30</h3>
+
+                                    <p>累计任务数</p>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">月任务分析</h5>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-tool dropdown-toggle"
+                                            data-toggle="dropdown">
+                                            <i class="fas fa-wrench"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <a href="#" class="dropdown-item">Action</a>
+                                            <a href="#" class="dropdown-item">Another action</a>
+                                            <a href="#" class="dropdown-item">Something else here</a>
+                                            <a class="dropdown-divider"></a>
+                                            <a href="#" class="dropdown-item">Separated link</a>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p class="text-center">
+                                            <strong>Task:1 July, 2019 - 30 Jul,2019</strong>
+                                        </p>
+
+                                        <div class="chart">
+                                            <!-- Sales Chart Canvas -->
+                                            <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                                        </div>
+                                        <!-- /.chart-responsive -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-md-4">
+                                        <p class="text-center">
+                                            <strong>Number</strong>
+                                        </p>
+
+                                        <div class="progress-group">
+                                            任务总数
+                                            <span class="float-right"><b>200</b>/2000</span>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-primary" style="width: 80%"></div>
+                                            </div>
+                                        </div>
+                                        <!-- /.progress-group -->
+
+                                        <div class="progress-group">
+                                            线上任务总数
+                                            <span class="float-right"><b>310</b>/400</span>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-danger" style="width: 75%"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- /.progress-group -->
+                                        <div class="progress-group">
+                                            <span class="progress-text">线下任务数</span>
+                                            <span class="float-right"><b>480</b>/800</span>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-success" style="width: 60%"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- /.progress-group -->
+                                        <div class="progress-group">
+                                            取消任务数
+                                            <span class="float-right"><b>250</b>/500</span>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                            </div>
+                                        </div>
+                                        <!-- /.progress-group -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- ./card-body -->
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-sm-3 col-6">
+                                        <div class="description-block border-right">
+                                            <span class="description-percentage text-success"><i
+                                                    class="fas fa-caret-up"></i> 17%</span>
+                                            <h5 class="description-header">200</h5>
+                                            <span class="description-text">总任务同比增长（上一季度）</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-3 col-6">
+                                        <div class="description-block border-right">
+                                            <span class="description-percentage text-warning"><i
+                                                    class="fas fa-caret-left"></i> 0%</span>
+                                            <h5 class="description-header">310</h5>
+                                            <span class="description-text">线上任务数同比增长</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-3 col-6">
+                                        <div class="description-block border-right">
+                                            <span class="description-percentage text-success"><i
+                                                    class="fas fa-caret-up"></i> 20%</span>
+                                            <h5 class="description-header">480</h5>
+                                            <span class="description-text">线下任务数同比增长</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-3 col-6">
+                                        <div class="description-block">
+                                            <span class="description-percentage text-danger"><i
+                                                    class="fas fa-caret-down"></i> 18%</span>
+                                            <h5 class="description-header">250</h5>
+                                            <span class="description-text">取消任务数同比增长</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.card-footer -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header border-0">
+                                <div class="d-flex justify-content-between">
+                                    <h3 class="card-title">周任务情况</h3>
+                                    <a href="javascript:void(0);">View Report</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <p class="d-flex flex-column">
+                                        <span class="text-bold text-lg">40</span>
+                                        <span>周任务总数</span>
+                                    </p>
+                                    <p class="ml-auto d-flex flex-column text-right">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 12.5%
+                                        </span>
+                                        <span class="text-muted">同比上周</span>
+                                    </p>
+                                </div>
+                                <!-- /.d-flex -->
+
+                                <div class="position-relative mb-4">
+                                    <canvas id="visitors-chart" height="200"></canvas>
+                                </div>
+
+                                <div class="d-flex flex-row justify-content-end">
+                                    <span class="mr-2">
+                                        <i class="fas fa-square text-primary"></i> 本周
+                                    </span>
+
+                                    <span>
+                                        <i class="fas fa-square text-gray"></i> 上周
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-6 -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header border-0">
+                                <div class="d-flex justify-content-between">
+                                    <h3 class="card-title">队员接任务数</h3>
+                                    
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <p class="d-flex flex-column">
+                                        <span class="text-bold text-lg">40</span>
+                                        <span>任务总数</span>
+                                    </p>
+                                    <p class="ml-auto d-flex flex-column text-right">
+                                        <span class="text-success">
+                                            <i class="fas fa-arrow-up"></i> 33.1%
+                                        </span>
+                                        <span class="text-muted">同比上月</span>
+                                    </p>
+                                </div>
+                                <!-- /.d-flex -->
+
+                                <div class="position-relative mb-4">
+                                    <canvas id="sales-chart" height="200"></canvas>
+                                </div>
+
+                                <div class="d-flex flex-row justify-content-end">
+                                    <span class="mr-2">
+                                        <i class="fas fa-square text-primary"></i> 本月
+                                    </span>
+
+                                    <span>
+                                        <i class="fas fa-square text-gray"></i> 上月
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <script>
+        // 引入左边导航栏
+        $.get("../public/admin_sidebar.html", function (data) {
+            console.log(data)
+            $("#sidebar_menu").html(data);
+        })
+        //引入上边导航栏 
+        $.get("../public/admin_navbar.html", function (data) {
+            $("#navbar_menu").html(data);
+        })
+        
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../../dist/js/adminlte.min.js"></script>
+    <script src="../../../plugins/chart.js/Chart.min.js"></script>
+    <script src="../../../dist/js/pages/dashboard2.js"></script>
+    <script src="../../../dist/js/pages/dashboard3.js"></script>
+</body>
+
+</html>

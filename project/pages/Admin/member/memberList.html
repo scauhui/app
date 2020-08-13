@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- <title>AdminLTE 3 | Starter</title> -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="../../../dist/css/fonts.css" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" id="navbar_menu">
+            <!-- Left navbar links -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" id="sidebar_menu">
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <h1>未归还物资</h1>
+                    </div>
+                    <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">主页</a></li>
+                        <li class="breadcrumb-item active">未归还物资</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div><!-- /.container-fluid -->
+              </section>
+            <div class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <button type="button" class="btn btn-info btn-sm"  id="addMember">添加成员</button>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>学号</th>
+                                            <th>姓名</th>
+                                            <th>班级</th>
+                                            <th>生日</th>
+                                            <th>地址</th>
+                                            <th>联系方式</th>
+                                            <th>QQ</th>
+                                            <th>微信</th>
+                                            <th>邮箱</th>
+                                            <th style="text-align: center;">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pageBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer clearfix">
+                                <ul class="pagination pagination-sm m-0 float-right" id="turnPages">
+                                    <li class="page-item" data-page="0">
+                                        <a class="page-link" href="javascript:void(0);">&laquo;</a>
+                                    </li>
+                                    <li class="page-item" data-page="-1">
+                                        <a class="page-link" href="javascript:void(0);">&raquo;</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <script>
+        // 引入左边导航栏
+        $.get("../public/admin_sidebar.html", function (data) {
+            console.log(data)
+            $("#sidebar_menu").html(data);
+        })
+        //引入上边导航栏 
+        $.get("../public/admin_navbar.html", function (data) {
+            $("#navbar_menu").html(data);
+        })
+    </script>
+
+    <!-- Bootstrap 4 -->
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../../dist/js/adminlte.min.js"></script>
+    <script>
+        $(function () {
+            // 翻页按钮委托注册事件
+
+            $.ajax(
+                {
+                    url: "test1.json",
+                    success: function (res) {
+                        buildTableFooter(res.info.num)
+                        buildTableBody(res.info.data)
+
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+
+            $("#turnPages").on("click", "li", function (data) {
+                let activePage = $(this).data("page")
+                if (activePage === 0) {
+                    $(this).siblings(".active").prev().addClass("active").siblings().removeClass("active")
+                    if ($(this).hasClass("active")) {
+                        $(this).removeClass("active").next().addClass("active")
+                    }
+                    activePage = $(this).siblings(".active").data("page")
+                } else if (activePage === -1) {
+                    $(this).siblings(".active").next().addClass("active").siblings().removeClass("active")
+                    if ($(this).hasClass("active")) {
+                        $(this).removeClass("active").prev().addClass("active")
+                    }
+
+                    activePage = $(this).siblings(".active").data("page")
+                } else {
+                    $(this).addClass("active").siblings().removeClass("active")
+                }
+                console.log(activePage)
+                $.ajax(
+                    {
+                        url: "test" + activePage + ".json",
+                        success: function (res) {
+                            buildTableBody(res.info.data)
+
+
+                        },
+                        error: function (err) {
+                            console.log(err)
+                        }
+                    })
+            })
+        });
+        function buildTableFooter(data) {
+            let pageNum = data
+            let $a
+            for (let i = data; i > 0; i--) {
+                $a = "<li class=\"page-item\" data-page=\"" + i + "\"><a class=\"page-link\" href=\"javascript:void(0);\" >" + i + "</a></li>"
+                $("#turnPages").children("li:first").after($a)
+
+            }
+            $("#turnPages").children("li:first").next().addClass("active")
+        };
+        function buildTableBody(data) {
+            let pageData = data
+            $("#pageBody").empty()
+            let $tr = new Array()
+            console.log(pageData.length)
+            for (let i = 0; i < pageData.length; i++) {
+                $tr = []
+                $tr.push("<tr id=\"" + i + "\">")
+                $tr.push("<td>" + pageData[i].owner_name + "</td >")
+                $tr.push("<td>" + pageData[i].task_address + "</td>")
+                $tr.push("<td>" + pageData[i].repair_method + "</td>")
+                $tr.push("<td>" + pageData[i].task_date + "</td>")
+                $tr.push("<td>" + pageData[i].owner_name + "</td >")
+                $tr.push("<td>" + pageData[i].task_address + "</td>")
+                $tr.push("<td>" + pageData[i].repair_method + "</td>")
+                $tr.push("<td>" + pageData[i].task_date + "</td>")
+                $tr.push("<td>" + pageData[i].task_date + "</td>")
+                $tr.push("<td ><button type=\"button\"class=\"btn btn-block btn-success btn-xs\" style=\"width:80px;margin:0 auto\" id=\"reset\">重置密码</button></td>")
+                $tr.push("</tr>")
+                $tr = $tr.join("")
+                console.log(typeof ($tr))
+                $("#pageBody").append($tr)
+            }
+            $("#pageBody").on("click","#reset",function(data){
+                console.log("完成")
+            })
+            $("#addMember").on("click",function(){
+                console.log("添加member")
+            })
+        }
+
+    </script>
+</body>
+
+</html>

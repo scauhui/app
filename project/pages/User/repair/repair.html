@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- <title>AdminLTE 3 | Starter</title> -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="../../../dist/css/fonts.css" rel="stylesheet">
+    <style type="text/css">
+        .file {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin-left: 10px;
+        }
+
+        #upload {
+            opacity: 0;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 0;
+            left: 0
+        }
+
+        .content-img-list {
+            display: flex;
+        }
+
+        .content-img-list-item {
+            width: 100px;
+            height: 100px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul li {
+            background-repeat: no-repeat;
+            background-position: 0px 5px;
+        }
+
+        .show {
+            pointer-events: none;
+            width: 100px;
+            height: 25px;
+            position: absolute;
+            top: 75px;
+            background-color: black;
+            opacity: 0.7;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" id="navbar_menu">
+            <!-- Left navbar links -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" id="sidebar_menu">
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">机主报修</h1>
+                        </div><!-- /.col -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <div class="content">
+                <!-- Input addon -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">报修表</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label"
+                                    style="text-align: center;">称呼</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="name" placeholder="请输入称呼">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label" style="text-align: center;">
+                                    性别</label>
+                                <div class="col-sm-10">
+                                    <div class="row"
+                                        style="margin-left: 0;height:30px;position: absolute; top:50%;margin-top: -15px;">
+                                        <div class="form-check" style="justify-content: center;">
+                                            <input class="form-check-input" type="radio" name="gender" checked>
+                                            <label class="form-check-label">男</label>
+
+                                        </div>
+                                        <div class="form-check" style="margin-left: 10px;">
+                                            <input class="form-check-input" type="radio" name="gender">
+                                            <label class="form-check-label">女</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label" style="text-align: center;">
+                                    地址</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="address" placeholder="请输入地址">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label" style="text-align: center;">
+                                    报修方式</label>
+                                <div class="col-sm-10">
+                                    <div class="row"
+                                        style="margin-left: 0;height:30px;position: absolute; top:50%;margin-top: -15px;">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="online" checked>
+                                            <label class="form-check-label">线上报修</label>
+
+                                        </div>
+                                        <div class="form-check" style="margin-left: 10px;">
+                                            <input class="form-check-input" type="radio" name="online">
+                                            <label class="form-check-label">线下报修</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="model" class="col-sm-2 col-form-label" style="text-align: center;">
+                                    电脑型号</label>
+                                <div class="col-sm-10">
+                                    <input type="model" class="form-control" id="model" placeholder="请输入电脑型号">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="model" class="col-sm-2 col-form-label" style="text-align: center;">
+                                    联系方式</label>
+                                <div class="col-sm-10">
+                                    <input type="contact" class="form-control" id="model" placeholder="请输入联系方式">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="detail" class="col-sm-2 col-form-label" style="text-align: center;">
+                                    问题描述</label>
+                                <!-- textarea -->
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="3" placeholder="请描述你遇到的问题"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="picture" class="col-sm-2 col-form-label" style="text-align: center;">
+                                    上传图片</br>百度云分享链接及密码 </label>
+                                <!-- textarea -->
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="3" placeholder="请输入百度云图片分享链接"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- 上传图片模块 -->
+                            <!-- <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label" style="text-align: center;">
+                                    <br />上传图片 <br /> (支持jpg/png,图片大小不超过3m) </label>
+
+                                
+                                <div class="col-sm-10">
+                                    <div class="content-img" style="display: flex;">
+                                        <ul class="content-img-list">
+
+                                        </ul>
+                                        <div class="file">
+                                            <i class="fas fa-plus fa-6x" style="color:#ced4da;"></i>
+                                            <input type="file" name="file" accept="image/*" id="upload" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary float-right">提交</button>
+
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <script>
+        // 引入左边导航栏
+        $.get("../public/user_sidebar.html", function (data) {
+            console.log(data)
+            $("#sidebar_menu").html(data);
+        })
+        //引入上边导航栏 
+        $.get("../public/user_navbar.html", function (data) {
+            $("#navbar_menu").html(data);
+        })
+    </script>
+
+    <!-- 上传图片模块 -->
+    <!-- <script>
+        // 参考https://www.cnblogs.com/fozero/p/8835628.html
+
+        var imgName = []
+        var imgSrc = []
+        var imgFile = []
+        // 获取图片路径，用于显示缩略图
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL != undefined) { // basic
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+
+        }
+        //添加一个图片预览
+        function addNewContent(obj) {
+            $(obj).html("");
+            var $li = []
+            for (var i = 0; i < imgSrc.length; i++) {
+                $li.push('<li style="display:flex"><img class="content-img-list-item" src="' + imgSrc[i] + '" alt=""><a index="' + i + '" class="delete-btn"><i class="far fa-trash-alt" style="color:white;display:none;"></i></a></li>')
+            }
+            $li.join("")
+            $(obj).html($li);
+        }
+        $('#upload').on('change', function (e) {
+            console.log(this.files)
+            var fileList = this.files;
+            if (imgSrc.length + fileList.length > 3) {
+                return alert("最多只能上传3张图片");
+            }
+            var imgSize = this.files[0].size;  //b
+            if (imgSize > 1024 * 1024 * 3) {//3M
+                return alert("上传图片不能超过3M");
+            }
+            if (this.files[0].type != 'image/png' && this.files[0].type != 'image/jpeg') {
+                return alert("图片上传格式不正确");
+            }
+
+            for (var i = 0; i < fileList.length; i++) {
+                var imgSrcI = getObjectURL(fileList[i]);
+                imgName.push(fileList[i].name);
+                imgSrc.push(imgSrcI);
+                imgFile.push(fileList[i]);
+            }
+            addNewContent(".content-img-list")
+        })
+
+        $('.content-img-list').on('mouseenter', '.content-img-list-item', function () {
+            console.log("enter")
+            $(this).siblings('a').addClass('show').children('i').show();
+        });
+        $('.content-img-list').on('mouseleave', '.content-img-list-item', function () {
+            console.log("leave")
+            $(this).siblings('a').removeClass('show').children('i').hide();
+        });
+        $(".content-img-list").on("click", '.content-img-list-item', function () {
+            console.log(this)
+            var index = $(this).attr("index");
+            imgSrc.splice(index, 1);
+            imgFile.splice(index, 1);
+            imgName.splice(index, 1);
+            addNewContent(".content-img-list");
+            // if (imgSrc.length < 4) {//显示上传按钮
+            //     $('.content-img .file').show();
+            // }
+        });
+    </script> -->
+    <!-- Bootstrap 4 -->
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../../dist/js/adminlte.min.js"></script>
+</body>
+
+</html>

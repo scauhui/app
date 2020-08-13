@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- <title>AdminLTE 3 | Starter</title> -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="../../../dist/css/fonts.css" rel="stylesheet">
+    <style type="text/css">
+
+        .score{
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+        }
+        .score li i{
+            color:#cccccc;
+        }
+
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" id="navbar_menu">
+            <!-- Left navbar links -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" id="sidebar_menu">
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>我的工单</h1>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            <div class="content">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">工单列表</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>称呼</th>
+                                            <th>地址</th>
+                                            <th>报修方式</th>
+                                            <th>报修时间</th>
+                                            <th>处理状态</th>
+                                            <th>处理队员</th>
+                                            <th>完成时间</th>
+                                            <th style="text-align: center;">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pageBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer clearfix">
+                                <ul class="pagination pagination-sm m-0 float-right" id="turnPages">
+                                    <li class="page-item" data-page="0">
+                                        <a class="page-link" href="javascript:void(0);">&laquo;</a>
+                                    </li>
+                                    <li class="page-item" data-page="-1">
+                                        <a class="page-link" href="javascript:void(0);">&raquo;</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- ./wrapper -->
+
+    <div class="modal fade" id="modal_feedback">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">报修评价</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="inputDescription">优点</label>
+                        <textarea id="inputDescription" class="form-control" rows="4" placeholder="感谢你的鼓励"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">缺点</label>
+                        <textarea id="inputDescription" class="form-control" rows="4" placeholder="谢谢你的建议"></textarea>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">
+                            打个分吧</label>
+                        <!-- textarea -->
+                        <div class="col-sm-10 col-form-label">
+                            <ul class="score">
+                                <li><i class="fas fa-star fa-2x"></i></li>
+                                <li><i class="fas fa-star fa-2x"></i></li>
+                                <li><i class="fas fa-star fa-2x"></i></li>
+                                <li><i class="fas fa-star fa-2x"></i></li>
+                                <li><i class="fas fa-star fa-2x"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <div class="modal fade" id="modal_detail">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">工单详情</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="callout callout-info">
+                                        <h5><i class="fas fa-info"></i> 个人信息</h5>
+
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                姓名</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                厄斐琉斯
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                电话</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                400-8208820
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                地址</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                地址:泰山区6-666
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Main content -->
+                                    <div class="invoice p-3 mb-3">
+                                        <!-- title row -->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h4>
+                                                    <i class="fas fa-paperclip"></i> 任务信息
+                                                    <small class="float-right">报修日期： 2/10/2014</small>
+                                                </h4>
+                                            </div>
+                                            <!-- /.col -->
+                                        </div>
+                                        <!-- info row -->
+
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                任务编号</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                123123123123
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                任务状态</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                未处理
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                电脑型号</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                联想小新潮-7000
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                问题描述</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                任务队员编号</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                400
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label" style="text-align: center;">
+                                                任务完成日期</label>
+                                            <!-- textarea -->
+                                            <div class="col-sm-10 col-form-label">
+                                                2020-12-20
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.invoice -->
+                                </div><!-- /.col -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container-fluid -->
+                    </section>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <script>
+        // 引入左边导航栏
+        $.get("../public/user_sidebar.html", function (data) {
+            $("#sidebar_menu").html(data);
+        })
+        //引入上边导航栏 
+        $.get("../public/user_navbar.html", function (data) {
+            $("#navbar_menu").html(data);
+        })
+    </script>
+
+    <!-- Bootstrap 4 -->
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../../dist/js/adminlte.min.js"></script>
+    <!-- DataTables -->
+    <script src="../../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $(function () {
+            // 翻页按钮委托注册事件
+
+            $.ajax(
+                {
+                    url: "test1.json",
+                    success: function (res) {
+                        buildTableFooter(res.info.num)
+                        buildTableBody(res.info.data)
+
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+
+            $("#turnPages").on("click", "li", function (data) {
+                let activePage = $(this).data("page")
+                if (activePage === 0) {
+                    $(this).siblings(".active").prev().addClass("active").siblings().removeClass("active")
+                    if ($(this).hasClass("active")) {
+                        $(this).removeClass("active").next().addClass("active")
+                    }
+                    activePage = $(this).siblings(".active").data("page")
+                } else if (activePage === -1) {
+                    $(this).siblings(".active").next().addClass("active").siblings().removeClass("active")
+                    if ($(this).hasClass("active")) {
+                        $(this).removeClass("active").prev().addClass("active")
+                    }
+
+                    activePage = $(this).siblings(".active").data("page")
+                } else {
+                    $(this).addClass("active").siblings().removeClass("active")
+                }
+                console.log(activePage)
+                $.ajax(
+                    {
+                        url: "test" + activePage + ".json",
+                        success: function (res) {
+                            buildTableBody(res.info.data)
+
+
+                        },
+                        error: function (err) {
+                            console.log(err)
+                        }
+                    })
+            })
+        });
+        function buildTableFooter(data) {
+            let pageNum = data
+            let $a
+            for (let i = data; i > 0; i--) {
+                $a = "<li class=\"page-item\" data-page=\"" + i + "\"><a class=\"page-link\" href=\"javascript:void(0);\" >" + i + "</a></li>"
+                $("#turnPages").children("li:first").after($a)
+
+            }
+            $("#turnPages").children("li:first").next().addClass("active")
+        };
+        function buildTableBody(data) {
+            let pageData = data
+            $("#pageBody").empty()
+            let $tr = new Array()
+            console.log(pageData.length)
+            for (let i = 0; i < pageData.length; i++) {
+                $tr = []
+                $tr.push("<tr id=\"" + i + "\">")
+                $tr.push("<td>" + pageData[i].owner_name + "</td >")
+                $tr.push("<td>" + pageData[i].task_address + "</td>")
+                $tr.push("<td>" + pageData[i].repair_method + "</td>")
+                $tr.push("<td>" + pageData[i].task_date + "</td>")
+                $tr.push("<td>" + pageData[i].task_status + "</td>")
+                $tr.push("<td>" + pageData[i].task_member_one + "</td>")
+                $tr.push("<td>" + pageData[i].complete_date + "</td>")
+                if (pageData[i].task_status === "未处理") {
+                    $tr.push("<td style=\"text-align: center;\"><button type=\"button\" class=\"btn  btn-info btn-xs \"  style=\"width:40px;margin-right:5px\"id=\"detail\" data-toggle=\"modal\" data-target=\"#modal_detail\">详情</button>")
+                    $tr.push("<button type=\"button\" class=\"btn  btn-danger btn-xs\" style=\"width:40px\" id=\"undone\">取消</button></td>")
+                } else if (pageData[i].task_status === "已完成") {
+                    $tr.push("<td style=\"text-align: center;\"><button type=\"button\" class=\"btn  btn-info btn-xs \"  style=\"width:40px;margin-right:5px\"id=\"detail\" data-toggle=\"modal\" data-target=\"#modal_detail\">详情</button>")
+                    $tr.push("<button type=\"button\" class=\"btn  btn-success btn-xs \" style=\"width:40px\" id=\"done\" data-toggle=\"modal\" data-target=\"#modal_feedback\">评价</button></td>")
+                } else {
+                    $tr.push("<td style=\"text-align: center;\"><button type=\"button\" class=\"btn  btn-info btn-xs \"  style=\"width:85px\"id=\"detail\" data-toggle=\"modal\" data-target=\"#modal_detail\">查看详情</button>")
+
+                }
+                $tr.push("</tr>")
+                $tr = $tr.join("")
+                console.log(typeof ($tr))
+                $("#pageBody").append($tr)
+            }
+            $("#pageBody").on("click", "#undone", function (data) {
+                // console.log("取消")
+                $(this).parent().prev().prev().prev().after("<td>已取消</td>").remove()
+                $(this).after("<button type=\"button\"class=\"disabled btn  btn-danger btn-xs\" >已取消</button>").remove()
+                // console.log(data)
+            })
+            $("#pageBody").on("click", "#done", function (data) {
+                console.log("已完成")
+                // console.log($(this))
+            })
+
+        }
+
+        $(".score").children("li").on('mouseenter',function(){
+            $(this).children("i").css("color","#ffcc00").parent().prevAll().children("i").css("color","#ffcc00")
+            $(this).nextAll().children("i").css("color","#cccccc")
+        }).on("mouseleave",function(){
+            $('.score>li').children("i").css("color","#cccccc")
+            $('.score>li[clickCurrent]').children("i").css("color","#ffcc00").parent().prevAll().children("i").css("color","#ffcc00")
+        }).on("click",function(){
+            $(this).attr("clickCurrent","current").siblings().removeAttr("clickCurrent")
+        })
+    </script>
+</body>
+
+</html>

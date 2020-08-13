@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- <title>AdminLTE 3 | Starter</title> -->
+    <!-- Font Awesome Icons -->
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../../../plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="../../../dist/css/fonts.css" rel="stylesheet">
+    
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" id="navbar_menu">
+            <!-- Left navbar links -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" id="sidebar_menu">
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <h1>个人信息</h1>
+                    </div>
+                    <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">主页</a></li>
+                        <li class="breadcrumb-item active">个人信息</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div><!-- /.container-fluid -->
+              </section>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title">Input masks</h3>
+                            </div>
+                            <div class="card-body">
+                                <!-- Date dd/mm/yyyy -->
+                                <div class="form-group">
+                                    <label>Date masks:</label>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" data-inputmask-alias="datetime"
+                                            data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+
+                                <!-- Date mm/dd/yyyy -->
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" data-inputmask-alias="datetime"
+                                            data-inputmask-inputformat="mm/dd/yyyy" data-mask>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+
+                                <!-- phone mask -->
+                                <div class="form-group">
+                                    <label>US phone mask:</label>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control"
+                                            data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+
+                                <!-- phone mask -->
+                                <div class="form-group">
+                                    <label>Intl US phone mask:</label>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control"
+                                            data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']"
+                                            data-mask>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+
+                                <!-- IP mask -->
+                                <div class="form-group">
+                                    <label>IP mask:</label>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'ip'"
+                                            data-mask>
+                                    </div>
+
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+
+                    </div>
+                    <!-- /.col (left) -->
+                    <div class="col-md-6">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Date picker</h3>
+                            </div>
+                            <div class="card-body">
+                                <!-- Date range -->
+                                <div class="form-group">
+                                    <label>Date range:</label>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="far fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control float-right" id="reservation">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+
+                                <!-- Date and time range -->
+                                <div class="form-group">
+                                    <label>Date and time range:</label>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control float-right" id="reservationtime">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
+
+                                <!-- Date and time range -->
+                                <div class="form-group">
+                                    <label>Date range button:</label>
+
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-default float-right" id="daterange-btn">
+                                            <i class="far fa-calendar-alt"></i> Date range picker
+                                            <i class="fas fa-caret-down"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /.form group -->
+
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                        <!-- Widget: user widget style 1 -->
+                        <div class="card card-widget widget-user">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header text-white"
+                                style="background: url('../../../dist/img/photo1.png') center center;">
+                                <h3 class="widget-user-username text-right">奥利安娜</h3>
+                                <h5 class="widget-user-desc text-right">发条魔灵</h5>
+                            </div>
+                            <div class="widget-user-image">
+                                <img class="img-circle" src="../../../dist/img/user3-128x128.jpg" alt="User Avatar">
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-sm-4 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">30</h5>
+                                            <span class="description-text">线上任务</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">40</h5>
+                                            <span class="description-text">线下任务</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4">
+                                        <div class="description-block">
+                                            <h5 class="description-header">35</h5>
+                                            <span class="description-text">打卡数</span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                        </div>
+                        <!-- /.widget-user -->
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+                    <!-- /.col (right) -->
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <script>
+        // 引入左边导航栏
+        $.get("../public/admin_sidebar.html", function (data) {
+            console.log(data)
+            $("#sidebar_menu").html(data);
+        })
+        //引入上边导航栏 
+        $.get("../public/admin_navbar.html", function (data) {
+            $("#navbar_menu").html(data);
+        })
+    </script>
+
+
+    <!-- Bootstrap 4 -->
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../../dist/js/adminlte.min.js"></script>
+    <!-- InputMask -->
+    <script src="../../../plugins/moment/moment.min.js"></script>
+    <!-- Select2 -->
+    <script src="../../../plugins/select2/js/select2.full.min.js"></script>
+    <script src="../../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="../../../plugins/daterangepicker/daterangepicker.js"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+            //Datemask2 mm/dd/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+            //Money Euro
+            $('[data-mask]').inputmask()
+
+            //Date range picker
+            $('#reservation').daterangepicker()
+            //Date range picker with time picker
+            $('#reservationtime').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY hh:mm A'
+                }
+            })
+            //Date range as a button
+            $('#daterange-btn').daterangepicker(
+                {
+                    ranges: {
+                        'Today': [moment(), moment()],
+                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    },
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment()
+                },
+                function (start, end) {
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+                }
+            )
+        })
+
+    </script>
+</body>
+
+</html>
